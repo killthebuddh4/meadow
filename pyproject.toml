@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "meadow"
+version = "0.1.0"
+description = ""
+authors = ["achilles schmelzer <a@achilles.engineering>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+ruff = "^0.3.4"
+fastapi = "^0.110.0"
+uvicorn = {extras = ["standard"], version = "^0.29.0"}
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
