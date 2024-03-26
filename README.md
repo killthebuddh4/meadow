@@ -56,3 +56,19 @@ For Meadow v0.0.1 we need to make some decisions about which specific implementa
   - a translation of all non-English text
 - I've been using GPT-4 "manually" via ChatGPT as I've been reading recently, and it does a remarkable job of answering my questions, so I'm just going to worry about GPT-4 as a reference for now.
 - The head's up display will just be a text file that I can `tail -f`.
+
+# Development Roadmap
+
+1. Given a page in a book, "parse" the image.
+
+Off the top of my head there's a few ways we could do this:
+
+- Use an OCR library like [tesseract](https://github.com/tesseract-ocr/tesseract)
+- Use a multimodal LLM
+- Use a third-party OCR (e.g. [google cloud vision](https://cloud.google.com/vision/docs/ocr), [AWS textract](https://aws.amazon.com/textract/), or [Azure document intelligence]).
+
+I think we're going to try to use `tesseract` then if that doesn't work one of the hosted APIs. If quality is still not great maybe there's an opportunity to use a multimodal LLM to improve the quality.
+
+Actually, now that I think about it, maybe the whole magic of multimodal LLMs is that I don't have to parse the image. I can just pass an image of the page with a prompt that like, say, "Please give me a list of all the historical figures on this page.".
+
+I'm still going to try the LLM-first approach last because I'm pretty confident that I'm going to want to compute things from the raw text. If I never parse the image then I'm going to be constantly bottlenecked by the multimodality, I think.
