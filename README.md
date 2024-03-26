@@ -72,3 +72,9 @@ I think we're going to try to use `tesseract` then if that doesn't work one of t
 Actually, now that I think about it, maybe the whole magic of multimodal LLMs is that I don't have to parse the image. I can just pass an image of the page with a prompt that like, say, "Please give me a list of all the historical figures on this page.".
 
 I'm still going to try the LLM-first approach last because I'm pretty confident that I'm going to want to compute things from the raw text. If I never parse the image then I'm going to be constantly bottlenecked by the multimodality, I think.
+
+Update:
+
+Tesseract seems to be the most popular open source OCR tool and it doesn't work very well at all for my use case. It seems like Tesseract is very picky about the quality of the image along certain dimensions and can work very well if you make sure to control for all those dimensions. So maybe I could get it to work well for a single picture, but it seems highly unlikely that I'll get it to work well with _live video of the book I'm reading_.
+
+So I think I'm going to move onto trying out one of the hosted APIs. I'm not super hopeful about these, but we'll see. It's interesting because I've kind of been thinking that the actual LLM agent core of this project was small enough that it might already be a solved-ish problem and that I'm reinventing the wheel. But now it looks like I'm going to have to implement an agent just to get a decent feed of the book, which is great because it's evidence I have a real problem. Also, I found [this library](https://github.com/mercoa-finance/llm-document-ocr) which might help.
