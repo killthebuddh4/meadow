@@ -1,6 +1,6 @@
 ## Meadow
 
-Meadow is a personal AI copilot for deep work. Think [JARVIS](https://en.wikipedia.org/wiki/J.A.R.V.I.S.) but for reading, writing, and reflecting.
+Meadow is a personal AI copilot for deep work. The very first version is a _head's up display for active reading_. Think [JARVIS](https://en.wikipedia.org/wiki/J.A.R.V.I.S.) but studying and reflecting.
 
 ## The first use case
 
