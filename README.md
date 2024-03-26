@@ -1,3 +1,14 @@
+> I like to think (and
+> the sooner the better!)
+> of a cybernetic meadow
+> where mammals and computers
+> live together in mutually
+> programming harmony
+> like pure water
+> touching clear sky. 
+
+\- [Richard Brautigan](https://allpoetry.com/All-Watched-Over-By-Machines-Of-Loving-Grace)
+
 ## Meadow
 
 Meadow is a personal AI copilot for deep work. The very first version is a _head's up display for active reading_. Think [JARVIS](https://en.wikipedia.org/wiki/J.A.R.V.I.S.) but studying and reflecting.
