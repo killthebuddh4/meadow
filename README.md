@@ -78,3 +78,18 @@ Update:
 Tesseract seems to be the most popular open source OCR tool and it doesn't work very well at all for my use case. It seems like Tesseract is very picky about the quality of the image along certain dimensions and can work very well if you make sure to control for all those dimensions. So maybe I could get it to work well for a single picture, but it seems highly unlikely that I'll get it to work well with _live video of the book I'm reading_.
 
 So I think I'm going to move onto trying out one of the hosted APIs. I'm not super hopeful about these, but we'll see. It's interesting because I've kind of been thinking that the actual LLM agent core of this project was small enough that it might already be a solved-ish problem and that I'm reinventing the wheel. But now it looks like I'm going to have to implement an agent just to get a decent feed of the book, which is great because it's evidence I have a real problem. Also, I found [this library](https://github.com/mercoa-finance/llm-document-ocr) which might help.
+
+
+Update 2024-03-27-00
+
+So the AWS Textract API actually seems to work quite well, way better than `tesseract` and it also includes bounding boxes for the text it finds.
+
+If I were to take a snapshot of the page every 3 seconds for 3 hours, that would be a little less than $6.00 in API costs. It would somewhere around $150/month, which isn't that crazy as a starting point. Of course, that's super inefficient. What we could do is use a local LLM to detect page turns, or something like that. I wonder how well a small LLM could answer "What page is the reader looking at right now?"
+
+Update 2024-03-32-01
+
+I spent about an hour building a rig to suspend a webcam over the book I'm reading. It looks like my webcam can't support this application, its resolution is too low. I don't know anything about cameras, but I think "resolution" is the correct term. If I put the camera far enough away from the book that the whole book is in view, then the letters are super fuzzy. I briefly considered by a new webcam or digital camera, I don't think I need a very nice one, just something better than my $25 USB camera. Then I remember Amber already has a digital camera. But then I found about the new [continuity camera](https://support.apple.com/en-us/102546) that lets you use your iphone or ipad as a webcam. So that's the next step:
+
+_Use the continuity camera API to capture video from a python script._
+
+There's also this feature called "desktop view" which uses software to simulate a top-down view of your desk. That could be _perfect_ if it works well enough to resolve the printed characters!!!
