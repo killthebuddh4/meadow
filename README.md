@@ -93,3 +93,9 @@ I spent about an hour building a rig to suspend a webcam over the book I'm readi
 _Use the continuity camera API to capture video from a python script._
 
 There's also this feature called "desktop view" which uses software to simulate a top-down view of your desk. That could be _perfect_ if it works well enough to resolve the printed characters!!!
+
+Update 2024-03-38-00
+
+So the Continuity Camera API seems to work quite nicely! The desktop view is pretty cool but I don't think it will work for this application. So I think the camera (phone) is going to have to be mounted directly over the book, which is fine for me and definitely fine for a prototype! I have a rig/mount I built out of knex but it's not tall enough.
+
+I think in the next session I'll be able to fix the rig and implement some minimal pipeline iPhone -> OpenCV -> AWS Textract!!
