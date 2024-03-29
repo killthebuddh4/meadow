@@ -94,8 +94,42 @@ _Use the continuity camera API to capture video from a python script._
 
 There's also this feature called "desktop view" which uses software to simulate a top-down view of your desk. That could be _perfect_ if it works well enough to resolve the printed characters!!!
 
-Update 2024-03-38-00
+Update 2024-03-28-00
 
 So the Continuity Camera API seems to work quite nicely! The desktop view is pretty cool but I don't think it will work for this application. So I think the camera (phone) is going to have to be mounted directly over the book, which is fine for me and definitely fine for a prototype! I have a rig/mount I built out of knex but it's not tall enough.
 
 I think in the next session I'll be able to fix the rig and implement some minimal pipeline iPhone -> OpenCV -> AWS Textract!!
+
+Update 2024-03-28-01
+
+Implement bare minimum video -> textract pipeline 
+  
+So I have the mount set up, and I have my phone in the mount, and I 
+have a stream of video, and I have the AWS SDK, and it basically 
+JUST WORKS. Textract seems to be actually quite good. 
+  
+The most squirrelly thing at the moment is the camera mount is kind of 
+right up in my grill so that the full view is just a single page. I did 
+this to avoid having to detect a page, pull it out of a frame, and then 
+send that to Textract. That said, I feel like page detection on a dark 
+desk should be a solved problem. 
+  
+The other thing that I have to think about a little bit is how to 
+trigger the Textract API. I really want it to be automatic because the 
+whole point is flow, and having to remember to press a button every time 
+you get to a new page is not flow. 
+  
+So, do I want to get the mount and flow down or do I want to jump 
+straight into the rest of the pipeline: parse the textract response, 
+send it to OpenAI, and maybe trigger some things depending on the 
+response from OpenAI? 
+  
+I think I'm going to implement the rest of the pipeline. Now that I know 
+that I can definitely manage the raw video part of the project, I think 
+I can just implement the rest of the pipeline using a stubbed image. 
+That way this janky-ass mount and camera setup won't be a pain. Ok, so 
+next session is: 
+  
+- parse the response 
+- ask OpenAI a few questions about the parsed text 
+- display a feed of the responses somewhere! 
